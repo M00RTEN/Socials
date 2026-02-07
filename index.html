@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M00RTEN | Socials & Stream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-neon: #00d4ff;
@@ -21,7 +20,7 @@
             padding: 0;
             background-color: var(--bg-dark);
             color: white;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -44,25 +43,26 @@
         }
 
         .container {
-            width: 90%;
+            width: 95%;
             max-width: 600px;
             text-align: center;
-            padding: 40px 0;
+            padding: 50px 0;
         }
 
         .header {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .header h1 {
-            font-family: 'Dancing Script', cursive; /* Løkkeskrift */
-            font-size: 5rem; /* Gjort den stor og fin */
-            font-weight: 700;
+            font-size: clamp(3rem, 10vw, 5.5rem); /* Skalerer basert på skjermstørrelse */
+            font-weight: 900;
             margin: 0;
-            color: white;
-            text-shadow: 0 0 15px rgba(0, 212, 255, 0.8), 
-                         0 0 30px rgba(0, 212, 255, 0.4);
-            letter-spacing: 1px;
+            text-transform: uppercase; /* Blokkbokstaver */
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 30%, var(--primary-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
         }
 
         .links-stack {
@@ -77,53 +77,58 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 18px 25px;
+            border-radius: 16px;
+            padding: 20px 25px;
             text-decoration: none;
             color: white;
             display: flex;
             align-items: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
         }
 
         .glass-card:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--primary-neon);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .icon-box {
-            width: 40px;
-            font-size: 1.5rem;
+            width: 45px;
+            font-size: 1.6rem;
             margin-right: 15px;
             display: flex;
             justify-content: center;
         }
 
         .title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        /* Knapp-farger */
-        .discord-btn { border-left: 4px solid var(--discord-color); }
+        /* Knapp-farger og kantlinjer */
+        .discord-btn { border-left: 5px solid var(--discord-color); }
         .discord-btn i { color: var(--discord-color); }
-        .server-btn { border-left: 4px solid var(--primary-neon); }
+        
+        .server-btn { border-left: 5px solid var(--primary-neon); }
         .server-btn i { color: var(--primary-neon); }
-        .twitch-btn { border-left: 4px solid var(--twitch-color); }
+        
+        .twitch-btn { border-left: 5px solid var(--twitch-color); }
         .twitch-btn i { color: var(--twitch-color); }
-        .insta-btn { border-left: 4px solid var(--insta-color); }
+        
+        .insta-btn { border-left: 5px solid var(--insta-color); }
         .insta-btn i { color: var(--insta-color); }
-        .snap-btn { border-left: 4px solid var(--snap-color); }
+        
+        .snap-btn { border-left: 5px solid var(--snap-color); }
         .snap-btn i { color: var(--snap-color); }
 
         .stream-container {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .video-wrapper {
@@ -131,7 +136,7 @@
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 16px;
         }
 
         .video-wrapper iframe {
@@ -141,10 +146,11 @@
         }
 
         footer {
-            margin: 40px 0;
-            opacity: 0.5;
+            margin: 50px 0;
+            opacity: 0.4;
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -154,33 +160,33 @@
 
     <div class="container">
         <div class="header">
-            <h1>M00rten</h1>
+            <h1>M00RTEN</h1>
         </div>
 
         <div class="links-stack">
             <a href="https://discord.gg/gBctYMD3fd" class="glass-card discord-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-discord"></i></div>
-                <span class="title">Discord</span>
+                <span class="title">DISCORD</span>
             </a>
 
             <a href="https://m00rten.github.io/M00RTEN-SRT-HOSTING/index.html" class="glass-card server-btn" target="_blank">
                 <div class="icon-box"><i class="fas fa-server"></i></div>
-                <span class="title">SRT Hosting Server</span>
+                <span class="title">SRT HOSTING SERVER</span>
             </a>
 
             <a href="https://www.twitch.tv/m00rten" class="glass-card twitch-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-twitch"></i></div>
-                <span class="title">Twitch</span>
+                <span class="title">TWITCH</span>
             </a>
 
             <a href="https://www.instagram.com/m000rten/" class="glass-card insta-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-instagram"></i></div>
-                <span class="title">Instagram</span>
+                <span class="title">INSTAGRAM</span>
             </a>
 
             <a href="https://www.snapchat.com/@m00rten" class="glass-card snap-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-snapchat"></i></div>
-                <span class="title">Snapchat</span>
+                <span class="title">SNAPCHAT</span>
             </a>
         </div>
 
