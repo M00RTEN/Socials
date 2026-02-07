@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M00RTEN | Futuristik Socials</title>
+    <title>M00RTEN | Socials & Stream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-neon: #00d4ff;
             --twitch-color: #9146ff;
-            --insta-color: #f09433;
+            --insta-color: #e1306c;
             --snap-color: #fffc00;
             --bg-dark: #05070a;
         }
@@ -22,12 +22,11 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Endret fra center for å gi plass til rulling */
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Animert bakgrunn (Aurora-effekt) */
         .background-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -44,7 +43,7 @@
 
         .container {
             width: 90%;
-            max-width: 500px;
+            max-width: 600px; /* Gjort litt bredere for videoen */
             text-align: center;
             padding: 40px 0;
         }
@@ -60,7 +59,8 @@
         .links-stack {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         .glass-card {
@@ -68,96 +68,79 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 20px 30px;
+            border-radius: 15px;
+            padding: 18px 25px;
             text-decoration: none;
             color: white;
             display: flex;
             align-items: center;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .glass-card:hover {
-            transform: scale(1.03);
+            transform: scale(1.02);
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--primary-neon);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
         }
 
         .icon-box {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 40px;
+            font-size: 1.5rem;
+            margin-right: 15px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            margin-right: 20px;
-            background: rgba(0,0,0,0.3);
-        }
-
-        .content-box {
-            flex-grow: 1;
-            text-align: left;
         }
 
         .title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            display: block;
         }
 
-        .subtitle {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.7;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        /* Video Container */
+        .stream-container {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Spesifikke stiler for knapper */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .server-btn { border-left: 4px solid var(--primary-neon); }
         .server-btn i { color: var(--primary-neon); }
-
         .twitch-btn { border-left: 4px solid var(--twitch-color); }
         .twitch-btn i { color: var(--twitch-color); }
-
         .insta-btn { border-left: 4px solid #e1306c; }
         .insta-btn i { color: #e1306c; }
-
         .snap-btn { border-left: 4px solid var(--snap-color); }
         .snap-btn i { color: var(--snap-color); }
 
-        /* Live indikator (prikk) */
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ff4b4b;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 10px #ff4b4b;
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
         footer {
-            margin-top: 50px;
+            margin: 40px 0;
             padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            display: inline-block;
-            opacity: 0.6;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -173,35 +156,34 @@
         <div class="links-stack">
             <a href="https://m00rten.github.io/M00RTEN-SRT-HOSTING/index.html" class="glass-card server-btn" target="_blank">
                 <div class="icon-box"><i class="fas fa-server"></i></div>
-                <div class="content-box">
-                    <span class="title">SRT Hosting Server</span>
-                    <span class="subtitle">Cloud Infrastructure</span>
-                </div>
+                <span class="title">SRT Hosting Server</span>
             </a>
 
             <a href="https://www.twitch.tv/m00rten" class="glass-card twitch-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-twitch"></i></div>
-                <div class="content-box">
-                    <span class="title">Twitch</span>
-                    <span class="subtitle"><span class="live-dot"></span> Live Now</span>
-                </div>
+                <span class="title">Twitch</span>
             </a>
 
             <a href="https://www.instagram.com/m000rten/" class="glass-card insta-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-instagram"></i></div>
-                <div class="content-box">
-                    <span class="title">Instagram</span>
-                    <span class="subtitle">Personal Gallery</span>
-                </div>
+                <span class="title">Instagram</span>
             </a>
 
             <a href="https://www.snapchat.com/@m00rten" class="glass-card snap-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-snapchat"></i></div>
-                <div class="content-box">
-                    <span class="title">Snapchat</span>
-                    <span class="subtitle">Daily Updates</span>
-                </div>
+                <span class="title">Snapchat</span>
             </a>
+        </div>
+
+        <div class="stream-container">
+            <div class="video-wrapper">
+                <iframe
+                    src="https://player.twitch.tv/?channel=m00rten&parent=m00rten.net&parent=m00rten.github.io&autoplay=false"
+                    height="100%"
+                    width="100%"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
 
         <footer>
