@@ -12,6 +12,7 @@
             --insta-color: #e1306c;
             --snap-color: #fffc00;
             --discord-color: #5865f2;
+            --tiktok-color: #ff0050;
             --bg-dark: #05070a;
         }
 
@@ -54,10 +55,10 @@
         }
 
         .header h1 {
-            font-size: clamp(3rem, 10vw, 5.5rem); /* Skalerer basert på skjermstørrelse */
+            font-size: clamp(3rem, 10vw, 5.5rem);
             font-weight: 900;
             margin: 0;
-            text-transform: uppercase; /* Blokkbokstaver */
+            text-transform: uppercase;
             letter-spacing: -2px;
             background: linear-gradient(to bottom, #fff 30%, var(--primary-neon));
             -webkit-background-clip: text;
@@ -107,6 +108,9 @@
         }
 
         /* Knapp-farger og kantlinjer */
+        .tiktok-btn { border-left: 5px solid var(--tiktok-color); }
+        .tiktok-btn i { color: var(--tiktok-color); }
+
         .discord-btn { border-left: 5px solid var(--discord-color); }
         .discord-btn i { color: var(--discord-color); }
         
@@ -164,6 +168,11 @@
         </div>
 
         <div class="links-stack">
+            <a href="https://www.tiktok.com/@m000rten" class="glass-card tiktok-btn" target="_blank">
+                <div class="icon-box"><i class="fab fa-tiktok"></i></div>
+                <span class="title">TIKTOK</span>
+            </a>
+
             <a href="https://discord.gg/gBctYMD3fd" class="glass-card discord-btn" target="_blank">
                 <div class="icon-box"><i class="fab fa-discord"></i></div>
                 <span class="title">DISCORD</span>
